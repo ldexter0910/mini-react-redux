@@ -1,7 +1,25 @@
 import { useState } from "react";
+import { useTasksDispatch } from "../../context/TasksContext";
 
-export default function Task({ task, onChange, onDelete }) {
+export default function Task({ task }) {
   const [isEditing, setIsEditing] = useState(false);
+
+  const dispatch = useTasksDispatch();
+
+  const onChange = (task) => {
+    dispatch({
+      type: "changed",
+      task,
+    });
+  };
+
+  const onDelete = (id) => {
+    dispatch({
+      type: "deleted",
+      id,
+    });
+  };
+
   let taskContent;
   if (isEditing) {
     taskContent = (
