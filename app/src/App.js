@@ -1,8 +1,11 @@
 import './App.css';
+import TasksApp from './pages/TasksApp/TasksApp';
 
 function App() {
   return (
-    <div>Hello</div>
+    <>
+      <TasksApp />
+    </>
   );
 }
 
